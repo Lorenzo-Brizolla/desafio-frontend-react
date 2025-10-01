@@ -2,6 +2,7 @@ import PlantImage from "../assets/Plant.png";
 import MinusImage from "../assets/Minus.svg";
 import PlusImage from "../assets/Plus.svg";
 import "../css/Product.css";
+import Button from "../components/Button";
 
 export function Product() {
   return (
@@ -25,7 +26,7 @@ export function Product() {
               <h2 className="product__price">R$ 0,00</h2>
 
               {/* Criar componente Vegano */}
-              
+
               <div className="product__tag">
                 <img src={PlantImage} alt="planta" />
                 <span>Vegano</span>
@@ -58,7 +59,8 @@ export function Product() {
                   ></textarea>
                 </section>
                 <div className="product__buy">
-                  <section className="product__quantity">
+                  {/* Componente da quantidade */}
+                  {/* <section className="product__quantity">
                     <button className="product__quantity--minus">
                       <img src={MinusImage} alt="mais um" />
                     </button>
@@ -70,8 +72,8 @@ export function Product() {
                     <button className="product__quantity--plus">
                       <img src={PlusImage} alt="menos um" />
                     </button>
-                  </section>
-                  <button className="product__button">Comprar</button>
+                  </section> */}
+                  <Button/>
                 </div>
               </form>
             </div>

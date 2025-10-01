@@ -8,6 +8,7 @@
                   <span>Vegano</span>
                 </div>
               </a>
+              
               <a href={`/product/1`} className="products__list--item">
                 <img src="/product-02.png" alt="" />
                 <h3 className="products__list--price">R$ 0,00 <span>R$ 0,00</span></h3>
