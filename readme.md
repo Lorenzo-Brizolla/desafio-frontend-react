@@ -259,4 +259,6 @@ npx json-server db.json --port 3001
   - Exclua todos os itens do carrinho usando o endpoint `DELETE /carrinho/[id]`. Dica você pode usar um foreach para deletar todos.
   - Calcule o subtotal, frete e valor total usando o endpoint `GET /carrinho`
 
+  JANILTON
+
 </details>
