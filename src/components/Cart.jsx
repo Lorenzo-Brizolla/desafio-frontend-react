@@ -22,7 +22,7 @@ export function Cart() {
           </a>
         </div>
         <div className="cart__products">
-          <div className="cart__product">
+   {/*        <div className="cart__product">
             <img
               src="/product-01.png"
               alt=""
@@ -59,7 +59,7 @@ export function Cart() {
                 </section>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="cart__footer">
