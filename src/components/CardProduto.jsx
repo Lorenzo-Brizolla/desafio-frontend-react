@@ -1,18 +1,24 @@
 import PlantImage from "../assets/Plant.png";
 import CowImage from "../assets/Cow.png";
 
-export function CardProduto(productData, {vegano}) {
+export function CardProduto({productData}) {
+
+  function formatarPreco(precoCentavos) {
+    return (precoCentavos / 100).toFixed(2).replace('.', ',');
+  }
 
   return (
     <a href="" className="products__list--item">
-      <img src="" alt="" />
+      <img src={productData.imagem} alt={productData.nome} />
       <h3 className="products__list--price">
-        <span></span>
+        R$ {formatarPreco(productData.preco.por)}
+        <span>R$ {formatarPreco(productData.preco.de)}</span>
       </h3>
       <h4 className="products__list--name">
+        {productData.nome}
       </h4>
-        {vegano == true ? <div className="product__tag">
-      <img src={PlantImage} alt="" />Z
+        {productData.vegano == true ? <div className="product__tag">
+      <img src={PlantImage} alt="" />
       <span>Vegano</span>
     </div> : <div className="product__tag">
       <img src={CowImage} alt="" />

@@ -1,5 +1,6 @@
 import PlantImage from "../assets/Plant.png";
 import CowImage from "../assets/Cow.png";
+import dados from '../../db.json';
 
 export default function DadosProduto() {
   return (
