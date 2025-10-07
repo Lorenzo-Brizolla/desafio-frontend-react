@@ -4,6 +4,7 @@ import plantImage from '../assets/Plant.png'
 import plusImage  from '../assets/Plus.svg'
 import minusImage  from '../assets/Minus.svg'
 import '../css/cart.css'
+import NumberInput from '../components/NumberInput'
 
 export function Cart() {
   return (
@@ -60,6 +61,8 @@ export function Cart() {
               </div>
             </div>
           </div> */}
+          <NumberInput />
+
         </div>
       </section>
       <section className="cart__footer">
