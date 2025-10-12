@@ -8,7 +8,7 @@ export function CardProduto({productData}) {
   }
 
   return (
-    <a href="" className="products__list--item">
+    <a href={`/product/${productData.id}`} className="products__list--item">
       <img src={productData.imagem} alt={productData.nome} />
       <h3 className="products__list--price">
         R$ {formatarPreco(productData.preco.por)}

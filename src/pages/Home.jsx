@@ -3,6 +3,7 @@ import CowImage from "../assets/Cow.png";
 import "../css/Home.css";
 import dados from "../../db.json";
 import { CardProduto } from "../components/CardProduto";
+import { use, useState } from "react";
 
 export function Home() {
   const { produtos } = dados;
@@ -14,6 +15,36 @@ export function Home() {
   const produtosGelados = produtos.filter((produto) => {
     return produto.categoria === "gelados";
   });
+
+/*   const [produtoClassicosData, setProdutoClassicos] = useState([
+    {
+      id: produtosClassicos.id,
+      nome: produtosClassicos.nome,
+      imagem: produtosClassicos.imagem,
+      descricao: produtosClassicos.descricao,
+      preco: {
+        de: produtosClassicos.preco.de,
+        por: produtosClassicos.preco.por,
+      },
+      vegano: produtosClassicos.vegano,
+      categoria: produtosClassicos.categoria,
+    },
+  ]); */
+/* 
+    const [produtoGeladosData, setProdutoGelados] = useState([
+    {
+      id: produtosGelados.id,
+      nome: produtosGelados.nome,
+      imagem: produtosGelados.imagem,
+      descricao: produtosGelados.descricao,
+      preco: {
+        de: produtosGelados.preco.de,
+        por: produtosGelados.preco.por,
+      },
+      vegano: produtoGelados.vegano,
+      categoria: produtoGelados.categoria,
+    },
+  ]); */
 
   return (
     <>
@@ -33,22 +64,22 @@ export function Home() {
           <div className="container">
             <h2 className="products__title">Clássicos</h2>
             <div className="products__list">
-              {produtosClassicos.map((produtosClassicos) => {
+              {produtosClassicos.map((produtoClassico) => {
                 return (
                   <CardProduto
-                    productData={produtosClassicos}
-                    key={produtosClassicos.id}
+                    productData={produtoClassico}
+                    key={produtoClassico.id}
                   />
                 );
               })}
             </div>
             <h2 className="products__title">Gelados</h2>
             <div className="products__list">
-              {produtosGelados.map((produtosGelados) => {
+              {produtosGelados.map((produtoGelado) => {
                 return (
                   <CardProduto
-                    productData={produtosGelados}
-                    key={produtosGelados.id}
+                    productData={produtoGelado}
+                    key={produtoGelado.id}
                   />
                 );
               })}

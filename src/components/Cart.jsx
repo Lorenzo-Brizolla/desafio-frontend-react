@@ -1,12 +1,28 @@
-import closeImage from '../assets/X.svg'
-import deleteImage from '../assets/Trash.svg'
-import plantImage from '../assets/Plant.png'
-import plusImage  from '../assets/Plus.svg'
-import minusImage  from '../assets/Minus.svg'
-import '../css/cart.css'
-import NumberInput from '../components/NumberInput'
+import closeImage from "../assets/X.svg";
+import deleteImage from "../assets/Trash.svg";
+import plantImage from "../assets/Plant.png";
+import plusImage from "../assets/Plus.svg";
+import minusImage from "../assets/Minus.svg";
+import dados from "../../db.json";
+import "../css/cart.css";
+import { cardCart } from "./cardCart";
+import { useState } from "react";
 
 export function Cart() {
+  const { produtos } = dados;
+  const [produtosCarrinho, setProdutosCarrinho] = useState([
+    {
+      id: "6b9f",
+      idProduto: "4",
+      nome: "Café com leite",
+      imagem: "./image/product-04.png",
+      preco: 1000,
+      vegano: false,
+      quantidade: "3",
+      observacao: "",
+    },
+  ]);
+
   return (
     <div className="cart">
       <section className="cart__header">
@@ -23,46 +39,12 @@ export function Cart() {
           </a>
         </div>
         <div className="cart__products">
-   {/*        <div className="cart__product">
-            <img
-              src="/product-01.png"
-              alt=""
-              className="cart__productImage"
-            />
-
-            <div className="cart__productInfo">
-              <div className="cart__productRow">
-                <div className="cart__productColumn">
-                  <h2 className="cart__productName">Café Espresso</h2>
-
-                  <div className="product__tag">
-                    <img src={plantImage} alt="vegano" />
-                    <span>Vegano</span>
-                  </div>
-                </div>
-
-                <button className="cart__productDelete">
-                  <img src={deleteImage} alt="Deletar produto" />
-                </button>
-              </div>
-
-              <div className="cart__productRow">
-                <h3 className="cart__productPrice">R$ 10,00</h3>
-
-                <section className="product__quantity">
-                  <button type="button" className="product__quantityMinus">
-                    <img src={plusImage} alt="mais um" />
-                  </button>
-                  <input type="text" readOnly className="product__quantityInput" value={1} />
-                  <button type="button" className="product__quantityPlus">
-                    <img src={minusImage} alt="menos um" />
-                  </button>
-                </section>
-              </div>
-            </div>
-          </div> */}
-          <NumberInput />
-
+          {produtos.map((produto) => {
+            return (
+              <cardCart productData={produto} key={produto.id} />
+            );
+          })}
+          
         </div>
       </section>
       <section className="cart__footer">
@@ -85,5 +67,5 @@ export function Cart() {
         </div>
       </section>
     </div>
-  )
+  );
 }
