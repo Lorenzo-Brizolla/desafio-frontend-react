@@ -3,59 +3,30 @@ import CowImage from "../assets/Cow.png";
 import "../css/Home.css";
 import dados from "../../db.json";
 import { CardProduto } from "../components/CardProduto";
-import { use, useState } from "react";
-
-const [produtosClassicosData, setProdutosClassicosData] = useState(null);
-
-const [produtosGeladosData, setProdutosGeladosData] = useState(null);
+import { use, useEffect, useState } from "react";
 
 export function Home() {
+  const [produtosClassicosData, setProdutosClassicosData] = useState([]);
+
+  const [produtosGeladosData, setProdutosGeladosData] = useState([]);
   const { produtos } = dados;
 
-  function filterProducts() {
-    
-    const produtosClassicos = produtos.filter((produto) => {
-      return produto.categoria === "classicos";
-    });
+  useEffect(() => {
+    function filterProducts() {
+      const produtosClassicos = produtos.filter((produto) => {
+        return produto.categoria === "classicos";
+      });
 
-    const produtosGelados = produtos.filter((produto) => {
-      return produto.categoria === "gelados";
-    });
+      const produtosGelados = produtos.filter((produto) => {
+        return produto.categoria === "gelados";
+      });
 
-    setProdutosClassicosData(produtosClassicos);
-    setProdutosGeladosData(produtosGelados);
-  }
+      setProdutosClassicosData(produtosClassicos);
+      setProdutosGeladosData(produtosGelados);
+    }
 
-  filterProducts();
-  /*   const [produtoClassicosData, setProdutoClassicos] = useState(null [
-    {
-      id: produtosClassicos.id,
-      nome: produtosClassicos.nome,
-      imagem: produtosClassicos.imagem,
-      descricao: produtosClassicos.descricao,
-      preco: {
-        de: produtosClassicos.preco.de,
-        por: produtosClassicos.preco.por,
-      },
-      vegano: produtosClassicos.vegano,
-      categoria: produtosClassicos.categoria,
-    },
-  ]); */
-
-  /*     const [produtoGeladosData, setProdutoGelados] = useState([
-    {
-      id: produtosGelados.id,
-      nome: produtosGelados.nome,
-      imagem: produtosGelados.imagem,
-      descricao: produtosGelados.descricao,
-      preco: {
-        de: produtosGelados.preco.de,
-        por: produtosGelados.preco.por,
-      },
-      vegano: produtoGelados.vegano,
-      categoria: produtoGelados.categoria,
-    },
-  ] ); */
+    filterProducts();
+  }, [produtos]);
 
   return (
     <>
