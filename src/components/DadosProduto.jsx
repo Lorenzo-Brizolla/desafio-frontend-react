@@ -15,7 +15,7 @@ export default function DadosProduto({ productData }) {
   return (
     <>
       <div className="product__container--image">
-        <img src={productData.imagem} className="product__image" alt={productData.nome} />
+        <img src={`/${productData.imagem}`} className="product__image" alt={productData.nome} />
       </div>
       <div className="product__data">
         <h1 className="product__title">{productData.nome}</h1>
