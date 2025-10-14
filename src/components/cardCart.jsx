@@ -3,7 +3,7 @@ import CowImage from "../assets/Cow.png";
 import deleteImage from "../assets/Trash.svg";
 import NumberInput from "./NumberInput";
 
-export function cardCart({ productData }) {
+export function CardCart({ productData }) {
     
   function formatarPreco(precoCentavos) {
     return (precoCentavos / 100).toFixed(2).replace(".", ",");
@@ -19,7 +19,7 @@ export function cardCart({ productData }) {
 
             {productData.vegano === true ? (
               <div className="product__tag">
-                <img src={PlantImagelantImage} alt="vegano" />
+                <img src={PlantImage} alt="vegano" />
                 <span>Vegano</span>
               </div>
             ) : (
