@@ -1,28 +1,31 @@
-import { useState } from "react";
-import PlantImage from "../assets/Plant.png";
-import CowImage from "../assets/Cow.png";
+import { useState, useEffect } from "react";
 import "../css/Product.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import DadosProduto from "../components/DadosProduto";
+import dados from "../../db.json";
 
 export function Product() {
   const [quantidade, setQuantidade] = useState(1);
-
-  function formatarPreco(precoCentavos) {
-    return (precoCentavos / 100).toFixed(2).replace(".", ",");
-  }
+  const [produto, setProduto] = useState(null);
 
   const { id } = useParams();
-  console.log("ID do produto:", id);
+
+  useEffect(() => {
+    if (dados && dados.produtos) {
+      const encontrado = dados.produtos.find((p) => String(p.id) === String(id));
+      setProduto(encontrado || null);
+    }
+  }, [id]);
+
   return (
     <main>
       <div className="container product__container">
-        <a href="/" className="product__link">
+        <Link to="/" className="product__link">
           Voltar para o início
-        </a>
+        </Link>
 
         <section className="product">
-          <DadosProduto />
+          <DadosProduto productData={produto} />
         </section>
       </div>
     </main>

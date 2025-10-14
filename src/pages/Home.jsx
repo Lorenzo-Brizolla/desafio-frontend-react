@@ -1,31 +1,31 @@
-import PlantImage from "../assets/Plant.png";
-import CowImage from "../assets/Cow.png";
 import "../css/Home.css";
 import dados from "../../db.json";
 import { CardProduto } from "../components/CardProduto";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Home() {
+  const [produtos, setProdutos] = useState([]);
   const [produtosClassicosData, setProdutosClassicosData] = useState([]);
-
   const [produtosGeladosData, setProdutosGeladosData] = useState([]);
-  const { produtos } = dados;
 
   useEffect(() => {
-    function filterProducts() {
-      const produtosClassicos = produtos.filter((produto) => {
-        return produto.categoria === "classicos";
-      });
-
-      const produtosGelados = produtos.filter((produto) => {
-        return produto.categoria === "gelados";
-      });
-
-      setProdutosClassicosData(produtosClassicos);
-      setProdutosGeladosData(produtosGelados);
+    // carregar produtos do db.json (poderia vir de uma API no futuro)
+    if (dados && dados.produtos) {
+      setProdutos(dados.produtos);
     }
+  }, []);
 
-    filterProducts();
+  useEffect(() => {
+    const produtosClassicos = produtos.filter((produto) => {
+      return produto.categoria === "classicos";
+    });
+
+    const produtosGelados = produtos.filter((produto) => {
+      return produto.categoria === "gelados";
+    });
+
+    setProdutosClassicosData(produtosClassicos);
+    setProdutosGeladosData(produtosGelados);
   }, [produtos]);
 
   return (

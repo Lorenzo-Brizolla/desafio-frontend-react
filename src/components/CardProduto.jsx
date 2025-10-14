@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PlantImage from "../assets/Plant.png";
 import CowImage from "../assets/Cow.png";
 
@@ -8,7 +9,7 @@ export function CardProduto({productData}) {
   }
 
   return (
-    <a href={`/product/${productData.id}`} className="products__list--item">
+    <Link to={`/product/${productData.id}`} className="products__list--item">
       <img src={productData.imagem} alt={productData.nome} />
       <h3 className="products__list--price">
         R$ {formatarPreco(productData.preco.por)}
@@ -24,6 +25,6 @@ export function CardProduto({productData}) {
       <img src={CowImage} alt="" />
       <span>Contém lactose</span>
     </div>}
-    </a>
+    </Link>
   );
 }
