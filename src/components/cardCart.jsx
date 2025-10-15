@@ -8,6 +8,9 @@ export function CardCart({ productData }) {
   function formatarPreco(precoCentavos) {
     return (precoCentavos / 100).toFixed(2).replace(".", ",");
   }
+
+  
+
   return (
     <div className="cart__product">
       <img src={productData.imagem} alt="" className="cart__productImage" />
