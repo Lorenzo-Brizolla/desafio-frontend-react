@@ -1,4 +1,4 @@
-import "../css/Product.css";
+import "../css/product.css";
 
 export default function Button({textButton, type="button"}) {
     return (

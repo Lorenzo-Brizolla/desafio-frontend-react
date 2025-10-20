@@ -1,4 +1,4 @@
-import "../css/Home.css";
+import "../css/home.css";
 import dados from "../../db.json";
 import { CardProduto } from "../components/CardProduto";
 import { useEffect, useState } from "react";

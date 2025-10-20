@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../css/Product.css";
+import "../css/product.css";
 import { useParams, Link } from "react-router-dom";
 import DadosProduto from "../components/DadosProduto";
 import dados from "../../db.json";

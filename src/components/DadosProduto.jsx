@@ -2,7 +2,7 @@ import PlantImage from "../assets/Plant.png";
 import CowImage from "../assets/Cow.png";
 import NumberInput from "./NumberInput";
 import Button from "./Button";
-import "../css/Product.css";
+import "../css/product.css";
 import { useState } from "react";
 
 export default function DadosProduto({ productData }) {
